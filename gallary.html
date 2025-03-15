@@ -557,7 +557,7 @@
         function createGallery() {
             const gallery = document.querySelector('.gallery');
             const totalCards = 10;
-            const radius = window.innerWidth < 768 ? 400 : 600;
+            const radius = window.innerWidth < 480 ? 300 : 500;
             let currentAngle = 0;
             let isDragging = false;
             let startX = 0;
@@ -602,7 +602,10 @@
             // Navigation button click handlers
             prevButton.addEventListener('click', () => rotateGallery(1));
             nextButton.addEventListener('click', () => rotateGallery(-1));
-
+window.addEventListener('resize', () => {
+    radius = window.innerWidth < 480 ? 300 : 500;
+    updateCards();
+    
             function updateCards(extraRotation = 0) {
                 const cards = document.querySelectorAll('.card');
                 cards.forEach((card, index) => {
