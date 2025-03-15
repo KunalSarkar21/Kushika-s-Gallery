@@ -163,15 +163,47 @@
             transition: opacity 1s ease;
             z-index: 1000;
         }
+
+        /* 🌟 Mobile Optimizations */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .glass-container {
+                padding: 30px 20px;
+                border-radius: 20px;
+                margin: 0 10px;
+            }
+
+            .subtitle {
+                font-size: 1em;
+            }
+
+            .btn-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .btn {
+                width: 100%;
+                padding: 12px 0;
+                font-size: 1em;
+            }
+
+            .love-msg {
+                font-size: 0.8em;
+                text-align: center;
+                padding: 0 10px;
+            }
+
+            body {
+                padding: 20px 0;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Music Player -->
-    <audio id="background-music" loop>
-        <source src="perfect.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-
     <div class="page-transition"></div>
     <div class="glass-container">
         <h1>Welcome to Kushika's Gallery</h1>
@@ -215,25 +247,11 @@
             document.body.style.background = gradients[currentGradient];
         });
 
-        const music = document.getElementById("background-music");
-
-        function playMusic() {
-            music.volume = 100; // Optional volume control
-            music.play().catch(e => {
-                console.log("Autoplay blocked until user interacts.");
-            });
-        }
-
-        // Play music when any button is clicked
-        document.querySelectorAll('.btn').forEach(btn => {
-            btn.addEventListener('click', playMusic);
-        });
-
         document.querySelector('.btn:not(.color-btn)').addEventListener('click', () => {
             const transition = document.querySelector('.page-transition');
             transition.style.opacity = '1';
             setTimeout(() => {
-                window.location.href = 'gallary.html'; // Update if needed
+                window.location.href = 'gallary.html'; // update if needed
             }, 1000);
         });
     </script>
