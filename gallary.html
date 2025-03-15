@@ -491,42 +491,8 @@
             );
             z-index: 1;
         }
-        @media (max-width: 480px) {
-    .gallery {
-        width: 220px;
-        height: 280px;
-    }
-
-    .card {
-        width: 220px;
-        height: 280px;
-    }
-
-    .spotlight {
-        width: 250px;
-        height: 250px;
-    }
-
-    .nav-button {
-        width: 36px;
-        height: 36px;
-        font-size: 20px;
-    }
-
-    .nav-button::before {
-        width: 10px;
-        height: 10px;
-    }
-
-    .gallery-container {
-        padding: 0 10px;
-    }
-
-    .card.active {
-        transform: scale(1.1) translateZ(120px);
-    }
-}
-
+        
+        
     </style>
 </head>
 <body>
@@ -557,7 +523,7 @@
         function createGallery() {
             const gallery = document.querySelector('.gallery');
             const totalCards = 10;
-            const radius = window.innerWidth < 480 ? 300 : 500;
+            const radius = window.innerWidth < 768 ? 400 : 600;
             let currentAngle = 0;
             let isDragging = false;
             let startX = 0;
@@ -602,10 +568,7 @@
             // Navigation button click handlers
             prevButton.addEventListener('click', () => rotateGallery(1));
             nextButton.addEventListener('click', () => rotateGallery(-1));
-window.addEventListener('resize', () => {
-    radius = window.innerWidth < 480 ? 300 : 500;
-    updateCards();
-    
+
             function updateCards(extraRotation = 0) {
                 const cards = document.querySelectorAll('.card');
                 cards.forEach((card, index) => {
