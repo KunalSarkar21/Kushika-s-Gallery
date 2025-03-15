@@ -491,7 +491,42 @@
             );
             z-index: 1;
         }
-        
+        @media (max-width: 480px) {
+    .gallery {
+        width: 220px;
+        height: 280px;
+    }
+
+    .card {
+        width: 220px;
+        height: 280px;
+    }
+
+    .spotlight {
+        width: 250px;
+        height: 250px;
+    }
+
+    .nav-button {
+        width: 36px;
+        height: 36px;
+        font-size: 20px;
+    }
+
+    .nav-button::before {
+        width: 10px;
+        height: 10px;
+    }
+
+    .gallery-container {
+        padding: 0 10px;
+    }
+
+    .card.active {
+        transform: scale(1.1) translateZ(120px);
+    }
+}
+
     </style>
 </head>
 <body>
